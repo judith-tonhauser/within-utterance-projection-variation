@@ -1,8 +1,8 @@
 This folder contains the material for the paper "Predicting within-utterance projection variation", that is, the investigation of the asymmetry in the projection of BEL and CC in negative "know"-utterances. 
 
-# /results: The data, graphs and analysis scripts for Exp 2 from Scontras & Tonhauser 2025.
+#### /results: The data, graphs and analysis scripts for Exp 2 from Scontras & Tonhauser 2025.
 
-# /models: The models reported on in the paper.
+#### /models: The models reported on in the paper.
 
 0_scontras-tonhauser2025: The model reported on in section 3 of Scontras & Tonhauser 2025, Proceedings of Sinn und Bedeutung.
 
