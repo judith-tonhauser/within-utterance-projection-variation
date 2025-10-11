@@ -116,7 +116,7 @@ ggplot(data=PL2, aes(x=state, y=prob)) +
   ylab("Predicted probability") +
   xlab("Inferences") +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-ggsave("graphs/neg-know-predictions-by-QUD.pdf",height=2,width=3)
+ggsave("graphs/Fig1-neg-know-predictions-by-QUD.pdf",height=2,width=3)
 
 # Appendix ----
 

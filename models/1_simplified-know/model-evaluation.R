@@ -476,7 +476,7 @@ ggplot() +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
 ggsave("graphs/comparison.pdf",height=4,width=8)
 
-#### comparison of neg-know predictions to human data ----
+#### Fig 4: comparison of neg-know predictions to human data ----
 
 # read model data
 PL = read_csv("data/PL.csv")
@@ -543,7 +543,7 @@ ggplot() +
   ylab("Predicted probability (black) \n Mean inference rating (gray)") +
   xlab("Inferences") +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-ggsave("graphs/comparison-neg-know.pdf",height=2.5,width=3.5)
+ggsave("graphs/Fig4-comparison-neg-know.pdf",height=2.5,width=3.5)
 
 
 
