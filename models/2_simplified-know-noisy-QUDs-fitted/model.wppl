@@ -34,7 +34,10 @@ var worldState = [
 ]
 
 var statePrior = function(qudBias) {
-  return categorical({vs: worldState,ps: [1,1,1,1]}) // bias against {0,0} state
+  var BELval = flip(0.75) ? 1 : 0// BEL baserate
+  var CCval = flip(0.75) ? 1 : 0// CC baserate
+  return {BEL: BELval, CC: CCval}
+//   return categorical({vs: worldState,ps: [1,1,1,0.5]}) // bias against {0,0} state
 }
 
 
@@ -81,7 +84,7 @@ var commonGround = [
 var CGPrior = function() {
   return categorical({
     vs: commonGround,
-    ps: [2, 2, 2, 2, 2] //, 1, 1, 1, 1]
+    ps: [4, 2, 2, 2, 2] //, 1, 1, 1, 1]
   })
 }
 
@@ -102,7 +105,7 @@ var qudFns = {
 // }
 
 // Speaker optimality parameter
-var alpha = 8
+var alpha = 10
 
 // meaning function
 var meaning = function(utterance, state) {
@@ -174,24 +177,16 @@ var falseTrue = [{BEL: 0, CC: 1}]
 var trueTrue = [{BEL: 1, CC: 1}]
 
 // //TARGET
-// //BEL?: .25 BEL, 0.72 CC
-// //CC?:  .35 BEL, 0.61 CC
+// //BEL?: .247 [0.172, 0.324] BEL, 0.73 [0.649, 0.806] CC
+// //CC?:  .341 [0.262, 0.415] BEL, 0.62 [0.541, 0.707] CC
 
-// // display("PL interprets _Cole doesn't know that Julian dances salsa_ with QUD mc?:")
+// // // display("PL interprets _Cole doesn't know that Julian dances salsa_ with QUD mc?:")
+// print("BEL?")
 // viz.table(pragmaticListener("neg-know-pos-dance","BEL?"))
-// // viz(pragmaticListener("neg-know-pos-dance","ccQUD","higher"))
 
-// // display("PL interprets _Cole doesn't know that Julian dances salsa_ with QUD mc?:")
+// // // display("PL interprets _Cole doesn't know that Julian dances salsa_ with QUD mc?:")
+// print("CC?")
 // viz.table(pragmaticListener("neg-know-pos-dance","CC?"))
 
-// display("PL interprets _Cole doesn't know that Julian dances salsa_ with QUD mc?:")
-// viz.table(pragmaticListener("neg-know-pos-dance","mcQUD","lower"))
 
-// display("PL interprets _Cole doesn't know that Julian dances salsa_ with QUD cc?:")
-// viz.table(pragmaticListener("neg-know-pos-dance","ccQUD"))
-
-// display("PL interprets _Cole doesn't know that Julian dances salsa_ with QUD max?:")
-// viz.table(pragmaticListener("neg-know-pos-dance","maxQUD"))
-
-// LL: utterance, CG, QUD
-// viz.table(literalListener("pos-think-pos-dance", ah_beliefFalse, "maxQUD"))
+// viz.table(Infer(statePrior))
