@@ -45,9 +45,9 @@ return categorical({vs: worldState,ps: [1,1,1,1]})
 // // }
 var qudPriorLookup = function(qudBias) {
     qudBias == "BEL?" ? categorical({
-    vs: ["ccQUD", "mcQUD"], ps: [1, 20]
+    vs: ["ccQUD", "mcQUD"], ps: [1, 100]
   }) : categorical({
-    vs: ["ccQUD", "mcQUD"], ps: [20, 1]
+    vs: ["ccQUD", "mcQUD"], ps: [100, 1]
   })
 }
 
@@ -101,7 +101,7 @@ var qudFns = {
 // }
 
 // Speaker optimality parameter
-var alpha = 6
+var alpha = 10
 
 // meaning function
 var meaning = function(utterance, state) {
