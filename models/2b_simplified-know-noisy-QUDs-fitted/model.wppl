@@ -36,8 +36,7 @@ var worldState = [
 var statePrior = function(qudBias) {
   var BELval = flip(0.75) ? 1 : 0// BEL baserate
   var CCval = flip(0.75) ? 1 : 0// CC baserate
-  return {BEL: BELval, CC: CCval}
-//   return categorical({vs: worldState,ps: [1,1,1,0.5]}) // bias against {0,0} state
+  return {BEL: BELval, CC: CCval} // bias against {0,0} state
 }
 
 
@@ -55,6 +54,7 @@ var qudPriorLookup = function(qudBias) {
 }
 
 // non-uniform state prior for Pragmatic Listener, based on CCprior ("higher" or "lower")
+// not considered here
 // var statePrior = function(CCprior) {
 //   return CCprior == "higher" ? categorical({
 //     vs: worldState,
@@ -84,14 +84,13 @@ var commonGround = [
 var CGPrior = function() {
   return categorical({
     vs: commonGround,
-    ps: [4, 2, 2, 2, 2] //, 1, 1, 1, 1]
+    ps: [4, 2, 2, 2, 2]
   })
 }
 
 
 // QUDs
 var qudFns = {
-  maxQUD : function(state) {return {BEL: state.BEL, CC: state.CC}},
   ccQUD : function(state) {return {CC: state.CC}},
   mcQUD : function(state) {return {BEL: state.BEL}}
 }

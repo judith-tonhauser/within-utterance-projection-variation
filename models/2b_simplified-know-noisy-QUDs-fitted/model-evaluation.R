@@ -1,4 +1,4 @@
-# 2_simplified-know-noisy-QUD-fitted
+# 2b_simplified-know-noisy-QUD-fitted
 # model evaluation script
 
 # load required libraries
@@ -68,46 +68,7 @@ nrow(PL) #24
 
 write_csv(PL, file="data/PL.csv")
 
-# Fig X: predictions for neg-know by QUD ----
-
-# read PL
-PL = read_csv("data/PL.csv")
-nrow(PL) #24
-
-# make long format to be able to aggregate state.CC and state.BEL
-PL2 = PL %>% pivot_longer(
-  cols = state.CC:state.BEL,
-  names_to = c("state"),
-  values_to = c("trueFalse"))
-PL2
-nrow(PL2) #48
-#view(PL2)
-
-# now keep rows where state.BEL=1 or state.CC=1
-PL2 = PL2 %>%
-  filter(trueFalse == 1) %>%
-  filter(utterance == "neg-know-pos-dance") %>%
-  mutate(utterance = recode(utterance, "neg-know-pos-dance" = "neg-know")) %>%
-  droplevels() %>%
-  mutate(state = recode(state, "state.BEL" = "BEL", "state.CC" = "CC")) %>%
-  mutate(qudBias = recode(qudBias, "BEL?" = "BEL? QUD", "CC?" = "CC? QUD")) %>%
-  rename(qud = qudBias) %>%
-  select(-c(trueFalse))
-PL2
-
-# plot 
-ggplot(data=PL2, aes(x=state, y=prob)) +
-  geom_bar(stat = "identity",width = 0.3) +
-  theme(legend.position="top") +
-  theme(axis.text.y = element_text(size=10)) +
-  facet_wrap(. ~ qud) +
-  #theme(axis.title.x=element_blank()) +
-  ylab("Predicted probability") +
-  xlab("Inferences") +
-  scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-ggsave("graphs/neg-know-predictions-by-QUD.pdf",height=2,width=3)
-
-# Fig 6: Comparison of neg-know predictions to human data ----
+# Fig 6b: Comparison of neg-know predictions to human data ----
 
 # read model data
 PL = read_csv("data/PL.csv")
@@ -179,5 +140,43 @@ ggplot() +
   ylab("Predicted probability (black) \n Mean inference rating (gray)") +
   xlab("Inferences") +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-ggsave("graphs/Fig6-comparison-neg-know.pdf",height=2.5,width=3.5)
+ggsave("graphs/Fig6b-comparison-neg-know.pdf",height=2.5,width=3.5)
 
+# Appendix: predictions for neg-know by QUD ----
+
+# read PL
+PL = read_csv("data/PL.csv")
+nrow(PL) #24
+
+# make long format to be able to aggregate state.CC and state.BEL
+PL2 = PL %>% pivot_longer(
+  cols = state.CC:state.BEL,
+  names_to = c("state"),
+  values_to = c("trueFalse"))
+PL2
+nrow(PL2) #48
+#view(PL2)
+
+# now keep rows where state.BEL=1 or state.CC=1
+PL2 = PL2 %>%
+  filter(trueFalse == 1) %>%
+  filter(utterance == "neg-know-pos-dance") %>%
+  mutate(utterance = recode(utterance, "neg-know-pos-dance" = "neg-know")) %>%
+  droplevels() %>%
+  mutate(state = recode(state, "state.BEL" = "BEL", "state.CC" = "CC")) %>%
+  mutate(qudBias = recode(qudBias, "BEL?" = "BEL? QUD", "CC?" = "CC? QUD")) %>%
+  rename(qud = qudBias) %>%
+  select(-c(trueFalse))
+PL2
+
+# plot 
+ggplot(data=PL2, aes(x=state, y=prob)) +
+  geom_bar(stat = "identity",width = 0.3) +
+  theme(legend.position="top") +
+  theme(axis.text.y = element_text(size=10)) +
+  facet_wrap(. ~ qud) +
+  #theme(axis.title.x=element_blank()) +
+  ylab("Predicted probability") +
+  xlab("Inferences") +
+  scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
+ggsave("graphs/neg-know-predictions-by-QUD.pdf",height=2,width=3)
