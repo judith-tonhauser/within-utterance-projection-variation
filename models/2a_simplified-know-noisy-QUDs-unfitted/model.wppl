@@ -101,7 +101,7 @@ var qudFns = {
 // }
 
 // Speaker optimality parameter
-var alpha = 10
+var alpha = 6
 
 // meaning function
 var meaning = function(utterance, state) {
