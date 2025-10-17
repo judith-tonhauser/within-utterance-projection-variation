@@ -147,7 +147,7 @@ S
 
 # speaker plots ----
 
-#### plot probability of neg-know by PA, state and QUD ----
+#### Fig 5: plot probability of neg-know by PA, state and QUD ----
 
 # read cleaned up speaker
 S = read_csv(file="data/S.csv")
@@ -160,22 +160,15 @@ S_agg$PA = paste(S_agg$CC, S_agg$BEL, sep="-")
 S_agg$combined = paste(S_agg$CC, S_agg$BEL, S_agg$state, sep="-")
 S_agg
 
-ggplot(S_agg, aes(x=prob, y = combined)) +
-  geom_bar(stat="identity") +
-  ylab("private assumptions about BEL and CC, \n state observed by speaker") +
-  xlab("Probability of neg-know utterance under BEL? QUD") +
-  theme(plot.title = element_text(hjust = 0.5, size = 11))
-ggsave("graphs/neg-know-probability-by-PA-and-stateCombined-qudBEL.pdf",width=6,height=4)
-
 ggplot(S_agg, aes(x=prob, y = PA)) +
   geom_bar(stat="identity") +
   ylab("Private assumption") +
-  #xlab("BEL? QUD") +
+  xlab("probability") +
   facet_grid(state ~ .) +
-  ggtitle("Observed state") +
+  #ggtitle("Observed state") +
   scale_x_continuous(breaks = c(0,.02,.04),labels = c("0", ".02", ".04")) +
   theme(plot.title = element_text(hjust = 0.5, size = 11))
-ggsave("graphs/neg-know-probability-by-PA-and-state-qudBEL.pdf",width=5,height=4)
+ggsave("graphs/Fig5a-neg-know-probability-by-PA-and-state-qudBEL.pdf",width=5,height=4)
 
 
 # CC? QUD
@@ -186,58 +179,15 @@ S_agg$PA = paste(S_agg$CC, S_agg$BEL, sep="-")
 S_agg$combined = paste(S_agg$BEL, S_agg$CC, S_agg$state, sep="-")
 S_agg
 
-ggplot(S_agg, aes(x=prob, y = combined)) +
-  geom_bar(stat="identity") +
-  ylab("private assumptions about BEL and CC, \n state observed by speaker") +
-  xlab("Probability of neg-know utterance under CC? QUD") +
-  theme(plot.title = element_text(hjust = 0.5, size = 11))
-ggsave("graphs/neg-know-probability-by-PA-and-stateCombined-qudCC.pdf",width=6,height=4)
-
 ggplot(S_agg, aes(x=prob, y = PA)) +
   geom_bar(stat="identity") +
   ylab("Private assumption") +
-  #xlab("CC? QUD") +
+  xlab("probability") +
   facet_grid(state ~ .) +
-  ggtitle("Observed state") +
-  scale_x_continuous(breaks = c(0,.00004),labels = c("0", ".00004")) +
+  #ggtitle("Observed state") +
+  scale_x_continuous(breaks = c(0,.00002,.00004),labels = c("0", ".00002",".00004")) +
   theme(plot.title = element_text(hjust = 0.5, size = 11))
-ggsave("graphs/neg-know-probability-by-PA-and-state-qudCC.pdf",width=5,height=4)
-
-
-#### plot probability of all utterances, by PA, state and QUDs ----
-
-# read cleaned up speaker
-S = read_csv(file="data/S.csv")
-
-# BEL? QUD
-S_agg = aggregate(prob~BEL*CC*state*utterance,data=S[S$qud == "BEL? QUD",],FUN=mean)
-S_agg
-
-S_agg$combined = paste(S_agg$BEL, S_agg$CC, S_agg$state, sep="-")
-S_agg
-
-ggplot(S_agg, aes(x=prob, y = combined)) +
-  geom_bar(stat="identity") +
-  ylab("private assumptions about BEL and CC, \n state observed by speaker") +
-  xlab("Probability of neg-know utterance under BEL? QUD") +
-  theme(plot.title = element_text(hjust = 0.5, size = 11)) +
-  facet_wrap(. ~ utterance)
-ggsave("graphs/utterance-probability-under-qudBEL.pdf",width=6,height=4)
-
-# CC? QUD
-S_agg = aggregate(prob~BEL*CC*state*utterance,data=S[S$qud == "CC? QUD",],FUN=mean)
-S_agg
-
-S_agg$combined = paste(S_agg$BEL, S_agg$CC, S_agg$state, sep="-")
-S_agg
-
-ggplot(S_agg, aes(x=prob, y = combined)) +
-  geom_bar(stat="identity") +
-  ylab("private assumptions about BEL and CC, \n state observed by speaker") +
-  xlab("Probability of utterances under CC? QUD") +
-  theme(plot.title = element_text(hjust = 0.5, size = 11)) +
-  facet_wrap(. ~ utterance)
-ggsave("graphs/utterance-probability-under-qudCC.pdf",width=6,height=4)
+ggsave("graphs/Fig5b-neg-know-probability-by-PA-and-state-qudCC.pdf",width=5,height=4)
 
 
 # run the pragmatic listener ----
@@ -271,83 +221,6 @@ nrow(PL) #24
 write_csv(PL, file="data/PL.csv")
 
 # pragmatic listener plots ----
-
-#### plot predictions for neg-know, aggregating over QUDs ----
-
-# read model data
-PL = read_csv("data/PL.csv")
-nrow(PL) #24
-#view(PL)
-
-# make long format to be able to aggregate state.CC and state.BEL
-PL2 = PL %>% pivot_longer(
-  cols = state.CC:state.BEL,
-  names_to = c("state"),
-  values_to = c("trueFalse"))
-PL2
-nrow(PL2) #48
-#view(PL2)
-
-# now keep rows where state.BEL=1 or state.CC=1
-PL2 = PL2 %>%
-  filter(trueFalse == 1) %>%
-  filter(utterance == "neg-know-pos-dance") %>%
-  mutate(utterance = recode(utterance, "neg-know-pos-dance" = "neg-know")) %>%
-  droplevels() %>%
-  mutate(state = recode(state, "state.BEL" = "BEL", "state.CC" = "CC")) %>%
-  group_by(utterance,state) %>%
-  summarize(prob = mean(prob))
-PL2
-
-# plot 
-ggplot(data=PL2, aes(x=state, y=prob)) +
-  geom_bar(stat = "identity",width = 0.3) +
-  theme(legend.position="top") +
-  theme(axis.text.y = element_text(size=10)) +
-  #theme(axis.title.x=element_blank()) +
-  ylab("Predicted probability") +
-  xlab("Inferences") +
-  scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-ggsave("graphs/predicted-probabilities-neg-know-QUD-aggregated.pdf",height=2,width=2)
-
-#### plot predictions for neg-know by QUD ----
-
-# read model data
-PL = read_csv("data/PL.csv")
-nrow(PL) #24
-#view(PL)
-
-# make long format to be able to aggregate state.CC and state.BEL
-PL2 = PL %>% pivot_longer(
-  cols = state.CC:state.BEL,
-  names_to = c("state"),
-  values_to = c("trueFalse"))
-PL2
-nrow(PL2) #48
-#view(PL2)
-
-# now keep rows where state.BEL=1 or state.CC=1
-PL2 = PL2 %>%
-  filter(trueFalse == 1) %>%
-  filter(utterance == "neg-know-pos-dance") %>%
-  mutate(utterance = recode(utterance, "neg-know-pos-dance" = "neg-know")) %>%
-  droplevels() %>%
-  rename("qud" = "qudBias") %>%
-  mutate(state = recode(state, "state.BEL" = "BEL", "state.CC" = "CC")) %>%
-  mutate(qud = recode(qud, "BEL?" = "BEL? QUD", "CC?" = "CC? QUD"))
-PL2
-
-# plot 
-ggplot(data=PL2, aes(x=state, y=prob)) +
-  geom_bar(stat = "identity",width = 0.3) +
-  theme(legend.position="top") +
-  theme(axis.text.y = element_text(size=10)) +
-  facet_wrap(. ~ qud) +
-  #theme(axis.title.x=element_blank()) +
-  ylab("Predicted probability") +
-  xlab("Inferences") +
-  scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-ggsave("graphs/predicted-probabilities-by-QUD.pdf",height=2,width=3)
 
 # plot comparison to human data ----
 
@@ -424,7 +297,7 @@ ggplot(data=PL_agg.utt, aes(x=content, y=prob)) +
   ylab("Predicted probability") +
   xlab("Inferences") +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-ggsave("graphs/predicted-probabilities.pdf",height=2,width=3)
+#ggsave("graphs/predicted-probabilities.pdf",height=2,width=3)
 
 # experiment data
 
@@ -474,7 +347,7 @@ ggplot() +
   ylab("Predicted probability \n Mean inference rating") +
   xlab("Inferences") +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-ggsave("graphs/comparison.pdf",height=4,width=8)
+#ggsave("graphs/comparison.pdf",height=4,width=8)
 
 #### Fig 4: comparison of neg-know predictions to human data ----
 
@@ -545,5 +418,41 @@ ggplot() +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
 ggsave("graphs/Fig4-comparison-neg-know.pdf",height=2.5,width=3.5)
 
+#### plot predictions for neg-know by QUD ----
 
+# read model data
+PL = read_csv("data/PL.csv")
+nrow(PL) #24
+#view(PL)
 
+# make long format to be able to aggregate state.CC and state.BEL
+PL2 = PL %>% pivot_longer(
+  cols = state.CC:state.BEL,
+  names_to = c("state"),
+  values_to = c("trueFalse"))
+PL2
+nrow(PL2) #48
+#view(PL2)
+
+# now keep rows where state.BEL=1 or state.CC=1
+PL2 = PL2 %>%
+  filter(trueFalse == 1) %>%
+  filter(utterance == "neg-know-pos-dance") %>%
+  mutate(utterance = recode(utterance, "neg-know-pos-dance" = "neg-know")) %>%
+  droplevels() %>%
+  rename("qud" = "qudBias") %>%
+  mutate(state = recode(state, "state.BEL" = "BEL", "state.CC" = "CC")) %>%
+  mutate(qud = recode(qud, "BEL?" = "BEL? QUD", "CC?" = "CC? QUD"))
+PL2
+
+# plot 
+ggplot(data=PL2, aes(x=state, y=prob)) +
+  geom_bar(stat = "identity",width = 0.3) +
+  theme(legend.position="top") +
+  theme(axis.text.y = element_text(size=10)) +
+  facet_wrap(. ~ qud) +
+  #theme(axis.title.x=element_blank()) +
+  ylab("Predicted probability") +
+  xlab("Inferences") +
+  scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
+ggsave("graphs/qualitativePredictions.pdf",height=2,width=3)

@@ -1,73 +1,73 @@
 state,commonGround,qud,utterance,prob,CC,BEL,pa
-"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,c,0.9149306149737376,CC:?,BEL:?,BEL:? CC:?
-"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,pos-think,0.0425346925131313,CC:?,BEL:?,BEL:? CC:?
-"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,pos-know,0.0425346925131313,CC:?,BEL:?,BEL:? CC:?
 "BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,c,0.9999545577994564,CC:?,BEL:?,BEL:? CC:?
 "BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,pos-know,4.539786668977192e-5,CC:?,BEL:?,BEL:? CC:?
 "BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,pos-think,4.4333854189230275e-08,CC:?,BEL:?,BEL:? CC:?
-"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",BEL? QUD,c,0.9999092083843392,CC:?,BEL:1,BEL:1 CC:?
-"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",BEL? QUD,pos-think,4.539580782951083e-5,CC:?,BEL:1,BEL:1 CC:?
-"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",BEL? QUD,pos-know,4.539580782951083e-5,CC:?,BEL:1,BEL:1 CC:?
+"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,c,0.9149306149737376,CC:?,BEL:?,BEL:? CC:?
+"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,pos-think,0.0425346925131313,CC:?,BEL:?,BEL:? CC:?
+"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,pos-know,0.0425346925131313,CC:?,BEL:?,BEL:? CC:?
 "BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",CC? QUD,c,0.9999545577994564,CC:?,BEL:1,BEL:1 CC:?
 "BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",CC? QUD,pos-know,4.539786668977192e-5,CC:?,BEL:1,BEL:1 CC:?
 "BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",CC? QUD,pos-think,4.4333854189230275e-08,CC:?,BEL:1,BEL:1 CC:?
-"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",BEL? QUD,c,0.9149306149737376,CC:1,BEL:?,BEL:? CC:1
-"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",BEL? QUD,pos-think,0.0425346925131313,CC:1,BEL:?,BEL:? CC:1
-"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",BEL? QUD,pos-know,0.0425346925131313,CC:1,BEL:?,BEL:? CC:1
+"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",BEL? QUD,c,0.9999092083843392,CC:?,BEL:1,BEL:1 CC:?
+"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",BEL? QUD,pos-think,4.539580782951083e-5,CC:?,BEL:1,BEL:1 CC:?
+"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",BEL? QUD,pos-know,4.539580782951083e-5,CC:?,BEL:1,BEL:1 CC:?
 "BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",CC? QUD,c,0.9999092083843392,CC:1,BEL:?,BEL:? CC:1
 "BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",CC? QUD,pos-think,4.539580782951083e-5,CC:1,BEL:?,BEL:? CC:1
 "BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",CC? QUD,pos-know,4.539580782951083e-5,CC:1,BEL:?,BEL:? CC:1
-"BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,c,0.9548401407821666,CC:?,BEL:?,BEL:? CC:?
-"BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-think,0.04439006753373342,CC:?,BEL:?,BEL:? CC:?
-"BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-know,7.697916841020679e-4,CC:?,BEL:?,BEL:? CC:?
+"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",BEL? QUD,c,0.9149306149737376,CC:1,BEL:?,BEL:? CC:1
+"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",BEL? QUD,pos-think,0.0425346925131313,CC:1,BEL:?,BEL:? CC:1
+"BEL:1,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",BEL? QUD,pos-know,0.0425346925131313,CC:1,BEL:?,BEL:? CC:1
 "BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,c,0.999999954895281,CC:?,BEL:?,BEL:? CC:?
 "BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,neg-think,4.4335866908919674e-8,CC:?,BEL:?,BEL:? CC:?
 "BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,neg-know,7.68851762345406e-10,CC:?,BEL:?,BEL:? CC:?
-"BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",BEL? QUD,c,0.9149306149737376,CC:1,BEL:?,BEL:? CC:1
-"BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",BEL? QUD,neg-think,0.0425346925131313,CC:1,BEL:?,BEL:? CC:1
-"BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",BEL? QUD,neg-know,0.0425346925131313,CC:1,BEL:?,BEL:? CC:1
+"BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,c,0.9548401407821666,CC:?,BEL:?,BEL:? CC:?
+"BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-think,0.04439006753373342,CC:?,BEL:?,BEL:? CC:?
+"BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-know,7.697916841020679e-4,CC:?,BEL:?,BEL:? CC:?
 "BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",CC? QUD,c,0.9999092083843392,CC:1,BEL:?,BEL:? CC:1
 "BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",CC? QUD,neg-think,4.539580782951083e-5,CC:1,BEL:?,BEL:? CC:1
 "BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",CC? QUD,neg-know,4.539580782951083e-5,CC:1,BEL:?,BEL:? CC:1
-"BEL:0,CC:1","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",BEL? QUD,c,0.9999092083843392,CC:?,BEL:0,BEL:0 CC:?
-"BEL:0,CC:1","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",BEL? QUD,neg-think,4.539580782951083e-5,CC:?,BEL:0,BEL:0 CC:?
-"BEL:0,CC:1","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",BEL? QUD,neg-know,4.539580782951083e-5,CC:?,BEL:0,BEL:0 CC:?
+"BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",BEL? QUD,c,0.9149306149737376,CC:1,BEL:?,BEL:? CC:1
+"BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",BEL? QUD,neg-think,0.0425346925131313,CC:1,BEL:?,BEL:? CC:1
+"BEL:0,CC:1","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}]",BEL? QUD,neg-know,0.0425346925131313,CC:1,BEL:?,BEL:? CC:1
 "BEL:0,CC:1","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",CC? QUD,c,0.999999911328269,CC:?,BEL:0,BEL:0 CC:?
 "BEL:0,CC:1","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",CC? QUD,neg-think,4.4335864977338256e-8,CC:?,BEL:0,BEL:0 CC:?
 "BEL:0,CC:1","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",CC? QUD,neg-know,4.4335864977338256e-8,CC:?,BEL:0,BEL:0 CC:?
-"BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,not c,0.9555750161298934,CC:?,BEL:?,BEL:? CC:?
-"BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,pos-think,0.04442423154184451,CC:?,BEL:?,BEL:? CC:?
-"BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-know,7.523282619831768e-7,CC:?,BEL:?,BEL:? CC:?
+"BEL:0,CC:1","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",BEL? QUD,c,0.9999092083843392,CC:?,BEL:0,BEL:0 CC:?
+"BEL:0,CC:1","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",BEL? QUD,neg-think,4.539580782951083e-5,CC:?,BEL:0,BEL:0 CC:?
+"BEL:0,CC:1","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",BEL? QUD,neg-know,4.539580782951083e-5,CC:?,BEL:0,BEL:0 CC:?
 "BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,not c,0.9999991683605826,CC:?,BEL:?,BEL:? CC:?
 "BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,neg-know,7.873035853995905e-7,CC:?,BEL:?,BEL:? CC:?
 "BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,pos-think,4.433583203722038e-8,CC:?,BEL:?,BEL:? CC:?
-"BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",BEL? QUD,not c,0.9999092083843392,CC:?,BEL:1,BEL:1 CC:?
-"BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",BEL? QUD,neg-know,4.539580782951083e-5,CC:?,BEL:1,BEL:1 CC:?
-"BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",BEL? QUD,pos-think,4.539580782951083e-5,CC:?,BEL:1,BEL:1 CC:?
+"BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,not c,0.9555750161298934,CC:?,BEL:?,BEL:? CC:?
+"BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,pos-think,0.04442423154184451,CC:?,BEL:?,BEL:? CC:?
+"BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-know,7.523282619831768e-7,CC:?,BEL:?,BEL:? CC:?
 "BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",CC? QUD,not c,0.9999545577994546,CC:?,BEL:1,BEL:1 CC:?
 "BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",CC? QUD,neg-know,4.539786668977184e-5,CC:?,BEL:1,BEL:1 CC:?
 "BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",CC? QUD,pos-think,4.4333854189230275e-08,CC:?,BEL:1,BEL:1 CC:?
-"BEL:1,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,not c,0.9555342810247264,CC:0,BEL:?,BEL:? CC:0
-"BEL:1,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,pos-think,0.04442233778602913,CC:0,BEL:?,BEL:? CC:0
-"BEL:1,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-know,4.338118924416904e-5,CC:0,BEL:?,BEL:? CC:0
+"BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",BEL? QUD,not c,0.9999092083843392,CC:?,BEL:1,BEL:1 CC:?
+"BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",BEL? QUD,neg-know,4.539580782951083e-5,CC:?,BEL:1,BEL:1 CC:?
+"BEL:1,CC:0","[{BEL: 1, CC: 1}, {BEL: 1, CC: 0}]",BEL? QUD,pos-think,4.539580782951083e-5,CC:?,BEL:1,BEL:1 CC:?
 "BEL:1,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,not c,0.9999092083843392,CC:0,BEL:?,BEL:? CC:0
 "BEL:1,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,neg-know,4.539580782951083e-5,CC:0,BEL:?,BEL:? CC:0
 "BEL:1,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,pos-think,4.539580782951083e-5,CC:0,BEL:?,BEL:? CC:0
-"BEL:0,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,not c,0.9548401407821666,CC:?,BEL:?,BEL:? CC:?
-"BEL:0,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-think,0.04439006753373342,CC:?,BEL:?,BEL:? CC:?
-"BEL:0,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-know,7.697916841020679e-4,CC:?,BEL:?,BEL:? CC:?
+"BEL:1,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,not c,0.9555342810247264,CC:0,BEL:?,BEL:? CC:0
+"BEL:1,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,pos-think,0.04442233778602913,CC:0,BEL:?,BEL:? CC:0
+"BEL:1,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-know,4.338118924416904e-5,CC:0,BEL:?,BEL:? CC:0
 "BEL:0,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,not c,0.9999991683605826,CC:?,BEL:?,BEL:? CC:?
 "BEL:0,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,neg-know,7.873035853995905e-7,CC:?,BEL:?,BEL:? CC:?
 "BEL:0,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,neg-think,4.433583203722038e-8,CC:?,BEL:?,BEL:? CC:?
-"BEL:0,CC:0","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",BEL? QUD,not c,0.9999092083843392,CC:?,BEL:0,BEL:0 CC:?
-"BEL:0,CC:0","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",BEL? QUD,neg-think,4.539580782951083e-5,CC:?,BEL:0,BEL:0 CC:?
-"BEL:0,CC:0","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",BEL? QUD,neg-know,4.539580782951083e-5,CC:?,BEL:0,BEL:0 CC:?
+"BEL:0,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,not c,0.9548401407821666,CC:?,BEL:?,BEL:? CC:?
+"BEL:0,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-think,0.04439006753373342,CC:?,BEL:?,BEL:? CC:?
+"BEL:0,CC:0","[{BEL: 1, CC: 1}, {BEL: 0, CC: 1}, {BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-know,7.697916841020679e-4,CC:?,BEL:?,BEL:? CC:?
 "BEL:0,CC:0","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",CC? QUD,not c,0.999999911328269,CC:?,BEL:0,BEL:0 CC:?
 "BEL:0,CC:0","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",CC? QUD,neg-think,4.4335864977338256e-8,CC:?,BEL:0,BEL:0 CC:?
 "BEL:0,CC:0","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",CC? QUD,neg-know,4.4335864977338256e-8,CC:?,BEL:0,BEL:0 CC:?
-"BEL:0,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,not c,0.9555342810247264,CC:0,BEL:?,BEL:? CC:0
-"BEL:0,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-think,0.04442233778602913,CC:0,BEL:?,BEL:? CC:0
-"BEL:0,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-know,4.338118924416904e-5,CC:0,BEL:?,BEL:? CC:0
+"BEL:0,CC:0","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",BEL? QUD,not c,0.9999092083843392,CC:?,BEL:0,BEL:0 CC:?
+"BEL:0,CC:0","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",BEL? QUD,neg-think,4.539580782951083e-5,CC:?,BEL:0,BEL:0 CC:?
+"BEL:0,CC:0","[{BEL: 0, CC: 1}, {BEL: 0, CC: 0}]",BEL? QUD,neg-know,4.539580782951083e-5,CC:?,BEL:0,BEL:0 CC:?
 "BEL:0,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,not c,0.9999092083843392,CC:0,BEL:?,BEL:? CC:0
 "BEL:0,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,neg-think,4.539580782951083e-5,CC:0,BEL:?,BEL:? CC:0
 "BEL:0,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",CC? QUD,neg-know,4.539580782951083e-5,CC:0,BEL:?,BEL:? CC:0
+"BEL:0,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,not c,0.9555342810247264,CC:0,BEL:?,BEL:? CC:0
+"BEL:0,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-think,0.04442233778602913,CC:0,BEL:?,BEL:? CC:0
+"BEL:0,CC:0","[{BEL: 1, CC: 0}, {BEL: 0, CC: 0}]",BEL? QUD,neg-know,4.338118924416904e-5,CC:0,BEL:?,BEL:? CC:0
