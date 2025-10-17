@@ -168,7 +168,7 @@ ggplot(S_agg, aes(x=prob, y = PA)) +
   #ggtitle("Observed state") +
   scale_x_continuous(breaks = c(0,.02,.04),labels = c("0", ".02", ".04")) +
   theme(plot.title = element_text(hjust = 0.5, size = 11))
-ggsave("graphs/Fig5a-neg-know-probability-by-PA-and-state-qudBEL.pdf",width=5,height=4)
+ggsave("graphs/Fig5a-neg-know-probability-by-PA-and-state-qudBEL.pdf",width=3,height=4)
 
 
 # CC? QUD
@@ -187,7 +187,7 @@ ggplot(S_agg, aes(x=prob, y = PA)) +
   #ggtitle("Observed state") +
   scale_x_continuous(breaks = c(0,.00002,.00004),labels = c("0", ".00002",".00004")) +
   theme(plot.title = element_text(hjust = 0.5, size = 11))
-ggsave("graphs/Fig5b-neg-know-probability-by-PA-and-state-qudCC.pdf",width=5,height=4)
+ggsave("graphs/Fig5b-neg-know-probability-by-PA-and-state-qudCC.pdf",width=3,height=4)
 
 
 # run the pragmatic listener ----
