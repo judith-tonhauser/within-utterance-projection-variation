@@ -131,13 +131,15 @@ means.by.qud
 
 # plot
 ggplot() +
-  geom_bar(data=PL2,aes(x=content, y=prob),stat = "identity",width = 0.3,position = position_nudge(x = -.15)) +
+  geom_bar(data=PL2,aes(x=content, y=prob),stat = "identity",
+           width = 0.3,position = position_nudge(x = -.15),
+           color="black",fill="black") +
   geom_bar(data=means.by.qud,aes(x=content, y=Mean), stat = "identity",width = 0.3, alpha = .7,position = position_nudge(x = .15)) +
   geom_errorbar(data=means.by.qud,aes(x=content, ymin=YMin, ymax=YMax), width=0.2, colour="black", alpha=1, linewidth=.5,position = position_nudge(x = .15)) +
   theme(legend.position="top") +
   theme(axis.text.y = element_text(size=10)) +
   facet_grid(. ~ qud) +
-  ylab("Predicted probability (black) \n Mean inference rating (gray)") +
+  ylab("Predicted probability (black) \n Mean inference rating (grey)") +
   xlab("Inferences") +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
 ggsave("graphs/Fig6a-comparison-neg-know.pdf",height=2.5,width=3.5)
@@ -171,7 +173,7 @@ PL2
 
 # plot 
 ggplot(data=PL2, aes(x=state, y=prob)) +
-  geom_bar(stat = "identity",width = 0.3) +
+  geom_bar(stat = "identity",width = 0.3,color="black",fill="black") +
   theme(legend.position="top") +
   theme(axis.text.y = element_text(size=10)) +
   facet_wrap(. ~ qud) +
