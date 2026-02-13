@@ -1,5 +1,9 @@
 This folder contains the material for the paper "Predicting within-utterance projection variation", that is, the investigation of the asymmetry in the projection of BEL and CC in negative "know"-utterances. 
 
+The folder contains the following directories:
+
+#### /Fig1: The R script to generate Fig. 1, which is based on data from Exp. 1a from Degen & Tonhauser's 2022 Language paper. 
+
 #### /results: The data, graphs and analysis scripts for Exp 2 from Scontras & Tonhauser 2025.
 
 #### /models: The models reported on in the paper.
