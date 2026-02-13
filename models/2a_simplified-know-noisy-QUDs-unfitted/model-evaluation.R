@@ -68,7 +68,7 @@ nrow(PL) #24
 
 write_csv(PL, file="data/PL.csv")
 
-# Fig 6a: Comparison of neg-know predictions to human data ----
+# Fig 7a: Comparison of neg-know predictions to human data ----
 
 # read model data
 PL = read_csv("data/PL.csv")
@@ -101,8 +101,9 @@ PL2 = PL2 %>%
   summarize(prob = mean(prob))
 PL2
 
-# load clean data from the experiment
-d = read_csv("../../results/data/cd.csv")
+# import data from repo
+d <- read_csv("https://raw.githubusercontent.com/judith-tonhauser/SuB29-Scontras-Tonhauser/refs/heads/main/results/main/main03/data/cd.csv")
+summary(d)
 nrow(d) #327
 
 means.C.utt.qud = d %>%
@@ -142,7 +143,7 @@ ggplot() +
   ylab("Predicted probability (black) \n Mean inference rating (grey)") +
   xlab("Inferences") +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-ggsave("graphs/Fig6a-comparison-neg-know.pdf",height=2.5,width=3.5)
+ggsave("graphs/Fig7a-comparison-neg-know.pdf",height=2.5,width=3.5)
 
 # Appendix: predictions for neg-know by QUD ----
 

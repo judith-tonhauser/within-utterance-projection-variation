@@ -147,7 +147,7 @@ S
 
 # speaker plots ----
 
-#### Fig 5: plot probability of neg-know by PA, state and QUD ----
+#### Fig 6: plot probability of neg-know by PA, state and QUD ----
 
 # read cleaned up speaker
 S = read_csv(file="data/S.csv")
@@ -168,7 +168,7 @@ ggplot(S_agg, aes(x=prob, y = PA)) +
   #ggtitle("Observed state") +
   scale_x_continuous(breaks = c(0,.02,.04),labels = c("0", ".02", ".04")) +
   theme(plot.title = element_text(hjust = 0.5, size = 11))
-ggsave("graphs/Fig5a-neg-know-probability-by-PA-and-state-qudBEL.pdf",width=3,height=4)
+ggsave("graphs/Fig6a-neg-know-probability-by-PA-and-state-qudBEL.pdf",width=3,height=4)
 
 
 # CC? QUD
@@ -187,8 +187,7 @@ ggplot(S_agg, aes(x=prob, y = PA)) +
   #ggtitle("Observed state") +
   scale_x_continuous(breaks = c(0,.00002,.00004),labels = c("0", ".00002",".00004")) +
   theme(plot.title = element_text(hjust = 0.5, size = 11))
-ggsave("graphs/Fig5b-neg-know-probability-by-PA-and-state-qudCC.pdf",width=3,height=4)
-
+ggsave("graphs/Fig6b-neg-know-probability-by-PA-and-state-qudCC.pdf",width=3,height=4)
 
 # run the pragmatic listener ----
 
@@ -220,136 +219,7 @@ nrow(PL) #24
 
 write_csv(PL, file="data/PL.csv")
 
-# pragmatic listener plots ----
-
-# plot comparison to human data ----
-
-#### plot comparison of all utterances, by QUD ----
-
-# read model data
-PL = read_csv("data/PL.csv")
-nrow(PL) #24
-#view(PL)
-
-# load clean data from the experiment
-d = read_csv("../../results/data/cd.csv")
-nrow(d) #327
-
-# make long format to be able to aggregate state.CC and state.BEL
-PL2 = PL %>% pivot_longer(
-  cols = state.CC:state.BEL,
-  names_to = c("state"),
-  values_to = c("trueFalse"))
-PL2
-nrow(PL2) #48
-#view(PL2)
-
-# now keep rows where state.BEL=1 or state.CC=1
-PL2 = PL2 %>%
-  filter(trueFalse == 1) %>%
-  droplevels() %>%
-  mutate(utterance = recode(utterance, "pos-know-pos-dance"="pos-know", "neg-know-pos-dance"="neg-know", 
-                                         "pos-think-pos-dance"="pos-think", "neg-think-pos-dance"="neg-think"))
-PL2
-#view(PL2)
-nrow(PL2) #24
-
-# calculate model predictions by utterance and contextual qud bias
-PL_agg.utt = PL2 %>%
-  group_by(utterance,qudBias,state) %>%
-  summarize(prob = sum(prob))
-PL_agg.utt
-nrow(PL_agg.utt) #20
-
-PL_agg.utt = PL_agg.utt %>%
-  mutate(state = recode(state, "state.BEL" = "BEL", "state.CC" = "CC")) %>%
-  rename("content" = "state", "qud" = "qudBias") %>%
-  mutate(utterance = recode(utterance, "pos-know-pos-dance"="pos-know", "neg-know-pos-dance"="neg-know", 
-                            "pos-think-pos-dance"="pos-think", "neg-think-pos-dance"="neg-think")) %>%
-  filter(utterance != "neg-bare-pos-dance" & utterance != "pos-bare-pos-dance")
-PL_agg.utt
-
-# add "neg-think-pos-dance" and state.BEL with value 0 to model predictions
-PL_agg.utt <- as.data.frame(PL_agg.utt)
-tmp.data = data.frame(utterance = "neg-think", content = "BEL", qud = "BEL?", prob = 0)
-tmp.data2 = data.frame(utterance = "neg-think", content = "BEL", qud = "CC?", prob = 0)
-PL_agg.utt = rbind(PL_agg.utt, tmp.data, tmp.data2)
-PL_agg.utt
-
-# sort utterances by increasing inference to CC
-tmp = d %>%
-  group_by(utterance) %>%
-  summarize(Mean = mean(responseCC)) %>%
-  mutate(utterance = recode(utterance, "know-pos"="pos-know", "know-neg"="neg-know", 
-                            "think-pos"="pos-think", "think-neg"="neg-think"))
-tmp
-
-PL_agg.utt$utterance = factor(PL_agg.utt$utterance, levels = tmp$utterance[order(tmp$Mean)], ordered = FALSE)
-levels(PL_agg.utt$utterance)
-
-# plot 
-ggplot(data=PL_agg.utt, aes(x=content, y=prob)) +
-  geom_bar(stat = "identity",width = 0.3) +
-  theme(legend.position="top") +
-  theme(axis.text.y = element_text(size=10)) +
-  facet_nested_wrap(utterance ~ qud, nrow=2) +
-  #theme(axis.title.x=element_blank()) +
-  ylab("Predicted probability") +
-  xlab("Inferences") +
-  scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-#ggsave("graphs/predicted-probabilities.pdf",height=2,width=3)
-
-# experiment data
-
-means.C.utt.qud = d %>%
-  group_by(qud,utterance) %>%
-  summarize(Mean = mean(responseCC), CILow = ci.low(responseCC), CIHigh = ci.high(responseCC)) %>%
-  mutate(YMin = Mean - CILow, YMax = Mean + CIHigh) %>%
-  select(-c(CILow, CIHigh)) %>%
-  mutate(qud = recode(qud, "ai" = "CC?", "nai" = "BEL?")) %>%
-  mutate(content = "CC")
-means.C.utt.qud
-
-means.BEL.utt.qud = d %>%
-  group_by(qud,utterance) %>%
-  summarize(Mean = mean(responseMC), CILow = ci.low(responseMC), CIHigh = ci.high(responseMC)) %>%
-  mutate(YMin = Mean - CILow, YMax = Mean + CIHigh) %>%
-  select(-c(CILow, CIHigh)) %>%
-  mutate(qud = recode(qud, "ai" = "CC?", "nai" = "BEL?")) %>%
-  mutate(content = "BEL") 
-means.BEL.utt.qud
-
-# bind the data
-means.by.qud = rbind(means.C.utt.qud,means.BEL.utt.qud)
-means.by.qud = means.by.qud %>%
-  mutate(utterance = recode(utterance, "know-pos"="pos-know", "know-neg"="neg-know", 
-                             "think-pos"="pos-think", "think-neg"="neg-think"))
-means.by.qud
-
-# sort utterances by increasing inference to CC
-tmp = d %>%
-  group_by(utterance) %>%
-  summarize(Mean = mean(responseCC)) %>%
-  mutate(utterance = recode(utterance, "know-pos"="pos-know", "know-neg"="neg-know", 
-                            "think-pos"="pos-think", "think-neg"="neg-think"))
-tmp
-
-means.by.qud$utterance = factor(means.by.qud$utterance, levels = means.by.qud$utterance[order(tmp$Mean)], ordered = FALSE)
-levels(means.by.qud$utterance)
-
-ggplot() +
-  geom_bar(data=PL_agg.utt,aes(x=content, y=prob),stat = "identity",width = 0.3,position = position_nudge(x = -.15)) +
-  geom_bar(data=means.by.qud,aes(x=content, y=Mean), stat = "identity",width = 0.3, alpha = .7,position = position_nudge(x = .15)) +
-  geom_errorbar(data=means.by.qud,aes(x=content, ymin=YMin, ymax=YMax), width=0.2, colour="black", alpha=1, linewidth=.5,position = position_nudge(x = .15)) +
-  theme(legend.position="top") +
-  theme(axis.text.y = element_text(size=10)) +
-  facet_nested_wrap(utterance ~ qud, nrow=2) +
-  ylab("Predicted probability \n Mean inference rating") +
-  xlab("Inferences") +
-  scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-#ggsave("graphs/comparison.pdf",height=4,width=8)
-
-#### Fig 4: comparison of neg-know predictions to human data ----
+# Fig 5: comparison of neg-know predictions to human data ----
 
 # read model data
 PL = read_csv("data/PL.csv")
@@ -377,8 +247,9 @@ PL2 = PL2 %>%
 PL2
 
 
-# load clean data from the experiment
-d = read_csv("../../results/data/cd.csv")
+# import experiment data from repo
+d <- read_csv("https://raw.githubusercontent.com/judith-tonhauser/SuB29-Scontras-Tonhauser/refs/heads/main/results/main/main03/data/cd.csv")
+summary(d)
 nrow(d) #327
 
 means.C.utt.qud = d %>%
@@ -418,7 +289,7 @@ ggplot() +
   ylab("Predicted probability (black) \n Mean inference rating (grey)") +
   xlab("Inferences") +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-ggsave("graphs/Fig4-comparison-neg-know.pdf",height=2.5,width=3.5)
+ggsave("graphs/Fig5-comparison-neg-know.pdf",height=2.5,width=3.5)
 
 # comparison to Fig2: predictions for neg-know by QUD  ----
 
