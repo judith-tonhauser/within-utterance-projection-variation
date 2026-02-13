@@ -4,9 +4,9 @@ The folder contains the following directories:
 
 #### /Fig1: The R script to generate Fig. 1, which is based on data from Exp. 1a from Degen & Tonhauser's 2022 Language paper. 
 
-#### /results: The data, graphs and analysis scripts for Exp 2 from Scontras & Tonhauser 2025.
+#### /results: The graphs and analysis scripts for Exp 2 from Scontras & Tonhauser 2025.
 
-#### /models: The models reported on in the paper.
+#### /models: The models reported on in the paper:
 
 0_scontras-tonhauser2025: The model reported on in section 3 of Scontras & Tonhauser 2025, Proceedings of Sinn und Bedeutung.
 
