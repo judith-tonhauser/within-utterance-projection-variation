@@ -74,7 +74,7 @@ nrow(PL) #48
 
 write_csv(PL, file="data/PL.csv")
 
-# Fig 1: predictions for neg-know by QUD ----
+# Fig 2: predictions for neg-know by QUD ----
 
 # read PL
 PL = read_csv("data/PL.csv")
@@ -116,7 +116,7 @@ ggplot(data=PL2, aes(x=state, y=prob)) +
   ylab("Predicted probability") +
   xlab("Inferences") +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-ggsave("graphs/Fig1-neg-know-predictions-by-QUD.pdf",height=2,width=3)
+ggsave("graphs/Fig2-neg-know-predictions-by-QUD.pdf",height=2,width=3)
 
 # plot for just BEL
 ggplot(data=PL2[PL2$state == "BEL",], aes(x=qud, y=prob)) +
@@ -127,7 +127,7 @@ ggplot(data=PL2[PL2$state == "BEL",], aes(x=qud, y=prob)) +
   ylab("Predicted probability") +
   xlab("QUD") +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-ggsave("graphs/Fig1-neg-know-BEL-predictions-by-QUD.pdf",height=2,width=2)
+ggsave("graphs/Fig2-neg-know-BEL-predictions-by-QUD.pdf",height=2,width=2)
 
 # plot for just CC
 ggplot(data=PL2[PL2$state == "CC",], aes(x=qud, y=prob)) +
@@ -138,7 +138,7 @@ ggplot(data=PL2[PL2$state == "CC",], aes(x=qud, y=prob)) +
   ylab("Predicted probability") +
   xlab("QUD") +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-ggsave("graphs/Fig1-neg-know-CC-predictions-by-QUD.pdf",height=2,width=2)
+ggsave("graphs/Fig2-neg-know-CC-predictions-by-QUD.pdf",height=2,width=2)
 
 # Appendix ----
 

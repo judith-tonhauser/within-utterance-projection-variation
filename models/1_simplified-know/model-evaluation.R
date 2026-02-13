@@ -420,7 +420,7 @@ ggplot() +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
 ggsave("graphs/Fig4-comparison-neg-know.pdf",height=2.5,width=3.5)
 
-#### plot predictions for neg-know by QUD ----
+# comparison to Fig2: predictions for neg-know by QUD  ----
 
 # read model data
 PL = read_csv("data/PL.csv")
@@ -449,7 +449,7 @@ PL2
 
 # plot 
 ggplot(data=PL2, aes(x=state, y=prob)) +
-  geom_bar(stat = "identity",width = 0.3,color="black",fill="black") +
+  geom_bar(stat = "identity",width = 0.3, fill="black",color = "black") +
   theme(legend.position="top") +
   theme(axis.text.y = element_text(size=10)) +
   facet_wrap(. ~ qud) +
@@ -457,4 +457,26 @@ ggplot(data=PL2, aes(x=state, y=prob)) +
   ylab("Predicted probability") +
   xlab("Inferences") +
   scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
-ggsave("graphs/qualitativePredictions.pdf",height=2,width=3)
+#ggsave("graphs/qualitativePredictions.pdf",height=2,width=3)
+
+# plot for just BEL
+ggplot(data=PL2[PL2$state == "BEL",], aes(x=qud, y=prob)) +
+  geom_bar(stat = "identity",width = 0.3, fill="black",color = "black") +
+  theme(legend.position="top") +
+  theme(axis.text.y = element_text(size=10)) +
+  #theme(axis.title.x=element_blank()) +
+  ylab("Predicted probability") +
+  xlab("QUD") +
+  scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
+ggsave("graphs/comparisonToFig2/neg-know-BEL-predictions-by-QUD.pdf",height=2,width=2)
+
+# plot for just CC
+ggplot(data=PL2[PL2$state == "CC",], aes(x=qud, y=prob)) +
+  geom_bar(stat = "identity",width = 0.3, fill="black",color = "black") +
+  theme(legend.position="top") +
+  theme(axis.text.y = element_text(size=10)) +
+  #theme(axis.title.x=element_blank()) +
+  ylab("Predicted probability") +
+  xlab("QUD") +
+  scale_y_continuous(limits = c(-.1,1.1),breaks = c(0,0.2,0.4,0.6,0.8,1.0), labels = c("0",".2",".4",".6",".8","1")) 
+ggsave("graphs/comparisonToFig2/neg-know-CC-predictions-by-QUD.pdf",height=2,width=2)

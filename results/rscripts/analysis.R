@@ -19,8 +19,9 @@ source('../../helpers.R')
 
 #### projection of BEL in neg-know and neg-think ----
 
-# load data
-d = read_csv("../data/cd.csv")
+# import data from repo
+d <- read_csv("https://raw.githubusercontent.com/judith-tonhauser/SuB29-Scontras-Tonhauser/refs/heads/main/results/main/main03/data/cd.csv")
+summary(d)
 nrow(d) #327
 
 # transform the data
@@ -64,8 +65,9 @@ summary(m)
 
 #### projection of BEL and CC in neg-know by QUD  ----
 
-# load datas
-d = read_csv("../data/cd.csv")
+# import data from repo
+d <- read_csv("https://raw.githubusercontent.com/judith-tonhauser/SuB29-Scontras-Tonhauser/refs/heads/main/results/main/main03/data/cd.csv")
+summary(d)
 nrow(d) #327
 
 # transform the data
@@ -121,8 +123,9 @@ library(emmeans)
 
 #### projection of BEL in neg-know and neg-think (CC? QUD as reference level) ----
 
-# load data
-d = read_csv("../data/cd.csv")
+# import data from repo
+d <- read_csv("https://raw.githubusercontent.com/judith-tonhauser/SuB29-Scontras-Tonhauser/refs/heads/main/results/main/main03/data/cd.csv")
+summary(d)
 nrow(d) #327
 
 # transform the data
@@ -187,8 +190,9 @@ hypothesis(m.b,"utteranceknowMneg > 0")$hypothesis$Evid.Ratio #Inf
 
 #### projection of BEL in neg-know and neg-think (BEL? QUD as reference level) ----
 
-# load data
-d = read_csv("../data/cd.csv")
+# import data from repo
+d <- read_csv("https://raw.githubusercontent.com/judith-tonhauser/SuB29-Scontras-Tonhauser/refs/heads/main/results/main/main03/data/cd.csv")
+summary(d)
 nrow(d) #327
 
 # transform the data
@@ -253,8 +257,9 @@ hypothesis(m.b,"utteranceknowMneg > 0")$hypothesis$Evid.Ratio #3.9
 
 #### projection of BEL and CC in neg-know by QUD  ----
 
-# load datas
-d = read_csv("../data/cd.csv")
+# import data from repo
+d <- read_csv("https://raw.githubusercontent.com/judith-tonhauser/SuB29-Scontras-Tonhauser/refs/heads/main/results/main/main03/data/cd.csv")
+summary(d)
 nrow(d) #327
 
 # transform the data

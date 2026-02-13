@@ -16,11 +16,12 @@ theme_set(theme_bw())
 # load helper functions
 source('../../helpers.R')
 
-# Fig 4: mean rating for BEL and CC by utterance and QUD, violin plot ----
-
-# load clean data
-d = read_csv("../data/cd.csv")
+# import data from repo
+d <- read_csv("https://raw.githubusercontent.com/judith-tonhauser/SuB29-Scontras-Tonhauser/refs/heads/main/results/main/main03/data/cd.csv")
+summary(d)
 nrow(d) #327
+
+# Fig 4: mean rating for BEL and CC by utterance and QUD, violin plot ----
 
 # identify mean ratings
 means.C.utt.qud = d %>%
@@ -105,8 +106,9 @@ ggsave("../graphs/mean-rating-by-utt-and-qud.pdf",height=3,width=8)
 
 ## By-participant ratings for neg-know ----
 
-# load clean data
-d = read_csv("../data/cd.csv")
+# import data from repo
+d <- read_csv("https://raw.githubusercontent.com/judith-tonhauser/SuB29-Scontras-Tonhauser/refs/heads/main/results/main/main03/data/cd.csv")
+summary(d)
 nrow(d) #327
 
 nrow(d[d$utterance == "know-neg",]) #76
